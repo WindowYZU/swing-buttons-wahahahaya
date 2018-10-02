@@ -34,7 +34,19 @@ public class CheckboxSample {
         //1. 在 frame 裡面 add check1 check2
         //2. 在 check1 check2 加入 ActionActionListener
         //3. 裡面執行JOptionPane.showMessageDialog(null, "check1=" + check1.isSelected() + ",check2=" + check2.isSelected());
-
+        frame.add(check1);
+        frame.add(check2);
+        
+        ActionListener listerner = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String str = "check1 = "+check1.isSelected()+'\n'+"check2 = "+check2.isSelected();
+                JOptionPane.showMessageDialog(null, str);
+            }
+        };
+        
+        check1.addActionListener(listerner);
+        check2.addActionListener(listerner);
         ////////////////////////////////////////
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
